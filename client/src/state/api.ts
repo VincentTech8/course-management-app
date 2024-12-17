@@ -4,7 +4,7 @@ import { BaseQueryApi, FetchArgs } from "@reduxjs/toolkit/query";
 const customBaseQuery = async (
   args: string | FetchArgs,
   api: BaseQueryApi,
-  extraOptions: {}
+  extraOptions: any
 ) => {
   const baseQuery = fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
