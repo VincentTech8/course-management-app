@@ -54,8 +54,8 @@ const Landing = () => {
     });
   };
 
-  // if (isLoading) return <LoadingSkeleton />;
-  // if (isError || !courses) return <div>Error fetching courses</div>;
+  if (isLoading) return <LoadingSkeleton />;
+  if (isError || !courses) return <div>Error fetching courses</div>;
 
   return (
     <motion.div
