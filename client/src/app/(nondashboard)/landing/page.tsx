@@ -7,8 +7,8 @@ import Image from "next/image";
 import { useCarousel } from "@/hooks/useCarousel";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGetCoursesQuery } from "@/state/api";
-import CourseCardSearch from "@/components/CourseCardSearch";
 import { useRouter } from "next/navigation";
+import CourseCardSearch from "@/components/CourseCardSearch";
 
 const LoadingSkeleton = () => {
   return (
@@ -126,6 +126,7 @@ const Landing = () => {
             </span>
           ))}
         </div>
+
         {/* Courses Display */}
         <div className="landing__courses">
           {courses &&
