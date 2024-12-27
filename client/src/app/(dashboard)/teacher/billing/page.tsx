@@ -21,7 +21,7 @@ import { useGetTransactionsQuery } from "@/state/api";
 import { useUser } from "@clerk/nextjs";
 import React, { useState } from "react";
 
-const UserBilling = () => {
+const TeacherBilling = () => {
   const [paymentType, setPaymentType] = useState("all");
   const { user, isLoaded } = useUser();
   const { data: transactions, isLoading: isLoadingTransactions } =
@@ -114,4 +114,4 @@ const UserBilling = () => {
   );
 };
 
-export default UserBilling;
+export default TeacherBilling;
