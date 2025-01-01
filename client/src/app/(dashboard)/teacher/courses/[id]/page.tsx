@@ -8,13 +8,13 @@ import { courseSchema } from "@/lib/schemas";
 import {
   centsToDollars,
   createCourseFormData,
-  // uploadAllVideos,
+  uploadAllVideos,
 } from "@/lib/utils";
 import { openSectionModal, setSections } from "@/state";
 import {
   useGetCourseQuery,
   useUpdateCourseMutation,
-  // useGetUploadVideoUrlMutation,
+  useGetUploadVideoUrlMutation,
 } from "@/state/api";
 import { useAppDispatch, useAppSelector } from "@/state/redux";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -32,7 +32,7 @@ const CourseEditor = () => {
   const id = params.id as string;
   const { data: course, isLoading, refetch } = useGetCourseQuery(id);
   const [updateCourse] = useUpdateCourseMutation();
-  // const [getUploadVideoUrl] = useGetUploadVideoUrlMutation();
+  const [getUploadVideoUrl] = useGetUploadVideoUrlMutation();
 
   const dispatch = useAppDispatch();
   const { sections } = useAppSelector((state) => state.global.courseEditor);
@@ -63,13 +63,13 @@ const CourseEditor = () => {
 
   const onSubmit = async (data: CourseFormData) => {
     try {
-      // const updatedSections = await uploadAllVideos(
-      //   sections,
-      //   id,
-      //   getUploadVideoUrl
-      // );
+      const updatedSections = await uploadAllVideos(
+        sections,
+        id,
+        getUploadVideoUrl
+      );
 
-      const formData = createCourseFormData(data, sections);
+      const formData = createCourseFormData(data, updatedSections);
 
       await updateCourse({
         courseId: id,
@@ -151,13 +151,17 @@ const CourseEditor = () => {
                   type="select"
                   placeholder="Select category here"
                   options={[
-                    { value: "technology", label: "Technology" },
-                    { value: "science", label: "Science" },
-                    { value: "mathematics", label: "Mathematics" },
+                    { value: "Data Science", label: "Data Science" },
+                    { value: "Web Development", label: "Web Development" },
+                    {
+                      value: "Mobile Development",
+                      label: "Mobile Development",
+                    },
                     {
                       value: "Artificial Intelligence",
                       label: "Artificial Intelligence",
                     },
+                    { value: "Computer Science", label: "Computer Science" },
                   ]}
                   initialValue={course?.category}
                 />

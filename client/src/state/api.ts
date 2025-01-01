@@ -129,22 +129,22 @@ export const api = createApi({
       invalidatesTags: ["Courses"],
     }),
 
-    // getUploadVideoUrl: build.mutation<
-    //   { uploadUrl: string; videoUrl: string },
-    //   {
-    //     courseId: string;
-    //     chapterId: string;
-    //     sectionId: string;
-    //     fileName: string;
-    //     fileType: string;
-    //   }
-    // >({
-    //   query: ({ courseId, sectionId, chapterId, fileName, fileType }) => ({
-    //     url: `courses/${courseId}/sections/${sectionId}/chapters/${chapterId}/get-upload-url`,
-    //     method: "POST",
-    //     body: { fileName, fileType },
-    //   }),
-    // }),
+    getUploadVideoUrl: build.mutation<
+      { uploadUrl: string; videoUrl: string },
+      {
+        courseId: string;
+        chapterId: string;
+        sectionId: string;
+        fileName: string;
+        fileType: string;
+      }
+    >({
+      query: ({ courseId, sectionId, chapterId, fileName, fileType }) => ({
+        url: `courses/${courseId}/sections/${sectionId}/chapters/${chapterId}/get-upload-url`,
+        method: "POST",
+        body: { fileName, fileType },
+      }),
+    }),
 
     /* 
     ===============
@@ -240,7 +240,7 @@ export const {
   useDeleteCourseMutation,
   useGetCoursesQuery,
   useGetCourseQuery,
-  // useGetUploadVideoUrlMutation,
+  useGetUploadVideoUrlMutation,
   useGetTransactionsQuery,
   useCreateTransactionMutation,
   useCreateStripePaymentIntentMutation,
