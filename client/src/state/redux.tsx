@@ -34,7 +34,7 @@ export default function StoreProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const storeRef = useRef<AppStore>();
+  const storeRef = useRef<AppStore>(undefined);
   if (!storeRef.current) {
     storeRef.current = makeStore();
     setupListeners(storeRef.current.dispatch);
