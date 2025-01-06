@@ -5,7 +5,6 @@
 - **Database Schema:**
 
 <p align="center">
- ![course-management-app - Entity Relationship Diagram and Database (1)](https://github.com/user-attachments/assets/4082d9fe-c375-4a91-a1c8-286e7257a42c)
   <img src="https://github.com/user-attachments/assets/4082d9fe-c375-4a91-a1c8-286e7257a42c" width="500" heigh="500" />
 </p>
 
